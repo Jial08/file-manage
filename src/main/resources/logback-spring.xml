@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!--spring-boot项目中可以读取application-xxx 中的变量 -->
+	<springProperty scope="context" name="logLevel" source="logging.level.root"/>
+	
+	<!--打印到控制台配置 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度，%logger{50}：类名，%msg：日志消息，%n是换行符 -->
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} -%msg%n</pattern>
+		</encoder>
+	</appender>
+	<!--打印到日志文件配置（滚动记录文件，先将日志记录到指定文件） -->
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!--滚动记录文件，滚动策略（文件大小和时间控制） -->
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- 日志文件输出的文件名，%i：文件名从0开始，当单个文件超过maxFileSize即1M时，新建一个1的文件，依次累加 -->
+			<FileNamePattern>/log/file_manage-%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+			<maxFileSize>1MB</maxFileSize>
+			<!--日志文件保留天数 -->
+			<maxHistory>15</maxHistory>
+			<!-- 当前版本bug，需要1.1.8才修复 -->
+			<totalSizeCap>10GB</totalSizeCap>
+		</rollingPolicy>
+		<!--对记录事件进行格式化 -->
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} -%msg%n</pattern>
+		</encoder>
+	</appender>
+	<!--日记异步化AsyncAppender 大幅提升系统性能 -->
+	<appender name="asyncFileAppender" class="ch.qos.logback.classic.AsyncAppender">
+		<!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+		<discardingThreshold>0</discardingThreshold>
+		<!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+		<queueSize>500</queueSize>
+		<!-- 添加附加的appender,最多只能添加一个，当高并发时可以解决日志的写入问题-->
+		<appender-ref ref="FILE" />
+	</appender>
+
+	<!-- root节点，必选节点，用来指定最基础的日志输出级别，${logLevel}指上面从配置文件中读取到的级别，日志打印级别：TRACE < DEBUG < INFO < WARN < ERROR -->
+	<root level="${logLevel}">
+		<!-- 控制台输出 -->
+		<appender-ref ref="STDOUT" />
+		<!-- 异步日志文件写入 -->
+		<appender-ref ref="asyncFileAppender" />
+	</root>
+	<!-- logger节点，可选节点，用来具体指明包的日志输出级别，它将会覆盖root的输出级别，继承root的输出 -->
+	<!-- <logger name="slf4j.Demo" level="DEBUG" /> -->
+	<!-- 同样的logger节点，选择不继承root的输出，自定义输出；additivity：是否将输出添加到root节点，默认true，即该包下的异常输出两遍 -->
+	<!-- <logger name="slf4j.Slf4jDemo" level="WARN" additivity="false">
+		以下写法就是slf4j.Slf4jDemo类下的异常只打印到日志而不在控制台输出
+	     <appender-ref ref="STDOUT"/>  
+	     <appender-ref ref="asyncFileAppender"/>
+	</logger> -->
+
+</configuration>

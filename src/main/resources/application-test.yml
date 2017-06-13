@@ -1,0 +1,35 @@
+server:
+  port: 8010
+  context-path: /file-manage
+spring:
+  application:
+    name: file-manage    # 项目名称尽量用小写
+  datasource: 
+    url : jdbc:mysql://192.168.100.63:3306/cloudlink_corrosionengineer?useUnicode=true&characterEncoding=UTF-8  #数据库地址
+    username : root								 #用户名
+    password : db@mysql 							 #密码
+    driverClassName : com.mysql.jdbc.Driver      #驱动包
+  jpa:
+    database : MYSQL
+    generate-ddl: false
+    show-sql : true
+    hibernate:
+      ddl-auto: none
+      naming-strategy : spring.jpa.hibernate.naming.strategy
+    properties: 
+      hibernate: 
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  http:
+    multipart:
+      enabled: true           #默认支持文件上传.
+      file-size-threshold: 0  #支持文件写入磁盘.
+      location:               #上传文件的临时目录
+      max-file-size: 500Mb      # 最大支持文件大小
+      max-request-size: 5000Mb  # 最大支持请求大小 
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.itmuch.youran.persistence: ERROR
