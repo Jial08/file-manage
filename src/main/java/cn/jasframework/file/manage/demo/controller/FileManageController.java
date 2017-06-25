@@ -26,7 +26,7 @@ public class FileManageController {
 	
 	/**
 	 * <p>功能描述：检查分块是否已上传。</p>
-	 * <p>贾亮 </p>	
+	 * <p>Jial </p>	
 	 * @param bo
 	 * @return
 	 * @since JDK1.8。
@@ -51,7 +51,7 @@ public class FileManageController {
 	
 	/**
 	 * <p>功能描述：上传文件。</p>
-	 * <p>贾亮 </p>	
+	 * <p>Jial </p>	
 	 * @param file
 	 * @param bo
 	 * @return

@@ -23,7 +23,7 @@ public class FileManageServiceImpl implements IFileManageService {
 
 	/**
 	 * <p>功能描述：查询分块是否已上传。</p>
-	 * <p>贾亮 </p>	
+	 * <p>Jial </p>	
 	 * @param entity
 	 * @return
 	 * @since JDK1.8。
@@ -41,7 +41,7 @@ public class FileManageServiceImpl implements IFileManageService {
 
 	/**
 	 * <p>功能描述：分块儿文件保存到本地并记录分块儿信息。</p>
-	 * <p>贾亮 </p>	
+	 * <p>Jial </p>	
 	 * @param file
 	 * @param bo
 	 * @return

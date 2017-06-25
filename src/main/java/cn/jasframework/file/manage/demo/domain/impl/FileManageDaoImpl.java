@@ -19,7 +19,7 @@ public class FileManageDaoImpl implements IFileManageDao {
 	
 	/**
 	 * <p>功能描述：查询分块是否已上传。</p>
-	 * <p>贾亮 </p>	
+	 * <p>Jial </p>	
 	 * @param entity
 	 * @return
 	 * @since JDK1.8。
@@ -35,7 +35,7 @@ public class FileManageDaoImpl implements IFileManageDao {
 	
 	/**
 	 * <p>功能描述：将上传成功的分块儿文件信息保存到数据库。</p>
-	 * <p>贾亮 </p>	
+	 * <p>Jial </p>	
 	 * @param entity
 	 * @return
 	 * @since JDK1.8。

@@ -11,7 +11,7 @@ public class commonUtil {
 	
 	/**
 	 * <p>类描述：获取当前时间的年月日时分秒字符串。</p>
-	 * @author贾亮
+	 * @authorJial
 	 * @version v1.0.0.1。
 	 * @since JDK1.8。
 	 *<p>创建日期：2017年4月17日 下午4:22:42。</p>
@@ -25,7 +25,7 @@ public class commonUtil {
 	
 	/**
 	 * <p>功能描述：将字符串的时间类型转为Date类型。</p>
-	 * <p>贾亮 </p>	
+	 * <p>Jial </p>	
 	 * @param dateStr
 	 * @param dateFormat
 	 * @return
@@ -51,7 +51,7 @@ public class commonUtil {
 	
 	/**
 	 * <p>功能描述：将文件大小(long型)转为String型(kb)。</p>
-	 * <p>贾亮 </p>	
+	 * <p>Jial </p>	
 	 * @param sizeL
 	 * @return
 	 * @since JDK1.8。
@@ -68,7 +68,7 @@ public class commonUtil {
 	
 	/**
 	 * <p>功能描述：通用的响应头处理，设置常用格式文件的浏览器打开方式。</p>
-	 * <p>贾亮 </p>	
+	 * <p>Jial </p>	
 	 * @param response
 	 * @param fileName	文件名
 	 * @param fileType	文件格式(后缀名，如：doc/txt/zip等)
