@@ -10,7 +10,7 @@ public class FileInServer {
 	private String fileName;		// 文件名
 	private String fileSize;		// 文件大小，单位KB
 	private String fileType;		// 文件格式
-	private String fileSavePath;	// 文件存储路径
+	private String filePath;		// 文件存储路径
 	private String createUser;		// 文件存储人
 	private Date createTime;		// 文件存储时间
 	private String modifyUser;		// 文件修改人
@@ -46,11 +46,11 @@ public class FileInServer {
 	public void setFileType(String fileType) {
 		this.fileType = fileType;
 	}
-	public String getFileSavePath() {
-		return fileSavePath;
+	public String getFilePath() {
+		return filePath;
 	}
-	public void setFileSavePath(String fileSavePath) {
-		this.fileSavePath = fileSavePath;
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
 	}
 	public String getCreateUser() {
 		return createUser;

@@ -10,63 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 public class commonUtil {
 	
 	/**
-	 * <p>类描述：获取当前时间的年月日时分秒字符串。</p>
-	 * @authorJial
-	 * @version v1.0.0.1。
-	 * @since JDK1.8。
-	 *<p>创建日期：2017年4月17日 下午4:22:42。</p>
-	 */
-	public static String getCurrentTime() {
-		long time = System.currentTimeMillis();
-		Date date = new Date(time);
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		return sdf.format(date);
-	}
-	
-	/**
-	 * <p>功能描述：将字符串的时间类型转为Date类型。</p>
-	 * <p>Jial </p>	
-	 * @param dateStr
-	 * @param dateFormat
-	 * @return
-	 * @since JDK1.8。
-	 * <p>创建日期:2017年4月17日 下午4:45:19。</p>
-	 * <p>更新日期:[日期YYYY-MM-DD][更改人姓名][变更描述]。</p>
-	 */
-	public static Date getDateFromDateString(String dateStr,
-			String dateFormat) {
-		if (dateStr != null && !"".equals(dateStr)) {
-			SimpleDateFormat sdf = null;
-			try {
-				sdf = new SimpleDateFormat(dateFormat);
-				Date date = sdf.parse(dateStr);
-				return date;
-			} catch (Exception e) {
-				e.printStackTrace();
-				return null;
-			}
-		}
-		return null;
-	}
-	
-	/**
-	 * <p>功能描述：将文件大小(long型)转为String型(kb)。</p>
-	 * <p>Jial </p>	
-	 * @param sizeL
-	 * @return
-	 * @since JDK1.8。
-	 * <p>创建日期:2017年4月18日 下午2:58:32。</p>
-	 * <p>更新日期:[日期YYYY-MM-DD][更改人姓名][变更描述]。</p>
-	 */
-	public static String handleFileSize(long sizeL) {
-		Double size = Double.valueOf(sizeL);
-		size = size / 1024;
-		// 设置小数保留两位，如果整数位是0，则会出现如（.01）这样的解决，所有括号里格式可以设置为（0.00）
-		DecimalFormat df = new DecimalFormat("0.00");
-		return df.format(size) + "k";
-	}
-	
-	/**
 	 * <p>功能描述：通用的响应头处理，设置常用格式文件的浏览器打开方式。</p>
 	 * <p>Jial </p>	
 	 * @param response
@@ -97,6 +40,22 @@ public class commonUtil {
 			}
 		}
 		response.addHeader("Content-Disposition", "attachment;filename=" + displayname);
+	}
+	
+	/**
+	 * <p>功能描述：判断字符串存在且非空。</p>
+	 * <p>Jial </p>	
+	 * @param str
+	 * @return
+	 * @since JDK1.8。
+	 * <p>创建日期:2017年6月30日 下午4:55:12。</p>
+	 * <p>更新日期:[日期YYYY-MM-DD][更改人姓名][变更描述]。</p>
+	 */
+	public static boolean hasText(String str) {
+		if (str != null && !"".equals(str) && !"null".equals(str) && !"undefined".equals(str)) {
+			return true;
+		}
+		return false;
 	}
 
 }

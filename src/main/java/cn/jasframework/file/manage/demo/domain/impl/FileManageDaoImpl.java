@@ -1,5 +1,6 @@
 package cn.jasframework.file.manage.demo.domain.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import cn.jasframework.file.manage.demo.domain.IFileManageDao;
 import cn.jasframework.file.manage.demo.domain.entity.FileBlock;
+import cn.jasframework.file.manage.demo.domain.entity.FileInServer;
 import cn.jasframework.file.manage.demo.domain.entity.TempFileInServer;
 
 @Repository
@@ -52,6 +54,16 @@ public class FileManageDaoImpl implements IFileManageDao {
 		Object[] args = { md5 };
 		String sql = "SELECT t.temp_file_path FROM temp_file_in_server t WHERE t.md5=? ORDER BY t.index";
 		return jdbcTemplate.query(sql, args, new BeanPropertyRowMapper<TempFileInServer>(TempFileInServer.class));
+	}
+
+	@Override
+	public int saveFileInfo(FileInServer entity) {
+		String sql = "INSERT INTO file_in_server (object_id,md5,file_name,file_size,file_type,file_path,create_user,create_time,modify_user,modify_time,active)"
+				+ " VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+		Object[] args = { entity.getObjectId(), entity.getMd5(), entity.getFileName(), entity.getFileSize(),
+				entity.getFileType(), entity.getFilePath(), entity.getCreateUser(), new Date(), 
+				entity.getModifyUser(), entity.getModifyTime(), entity.getActive()};
+		return jdbcTemplate.update(sql, args);
 	}
 	
 	

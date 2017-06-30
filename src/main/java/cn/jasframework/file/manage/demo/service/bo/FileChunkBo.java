@@ -6,10 +6,12 @@ public class FileChunkBo {
 	private String fileMd5; // 分块儿文件MD5
 	private int chunk;		// 分块儿文件下标
 	private int chunks;		// 总分块儿数
-	private long startSize;	// 分块儿文件开始位置
-	private long endtSize;	// 分块儿文件结束位置
-	private long total;		// 文件长度
-	private String ifExist;// 分块儿文件是否存在
+	private long start;		// 分块儿文件开始位置
+	private long end;		// 分块儿文件结束位置
+	private long size;		// 文件长度
+	private String fileType;// 文件类型
+	private String filePath;// 文件存储路径
+	private String uuid;	// 文件名
 	public String getFileMd5() {
 		return fileMd5;
 	}
@@ -28,30 +30,41 @@ public class FileChunkBo {
 	public void setChunks(int chunks) {
 		this.chunks = chunks;
 	}
-	public long getStartSize() {
-		return startSize;
+	public long getStart() {
+		return start;
 	}
-	public void setStartSize(long startSize) {
-		this.startSize = startSize;
+	public void setStart(long start) {
+		this.start = start;
 	}
-	public long getEndtSize() {
-		return endtSize;
+	public long getEnd() {
+		return end;
 	}
-	public void setEndtSize(long endtSize) {
-		this.endtSize = endtSize;
+	public void setEnd(long end) {
+		this.end = end;
 	}
-	public long getTotal() {
-		return total;
+	public long getSize() {
+		return size;
 	}
-	public void setTotal(long total) {
-		this.total = total;
+	public void setSize(long size) {
+		this.size = size;
 	}
-	public String getIfExist() {
-		return ifExist;
+	public String getFileType() {
+		return fileType;
 	}
-	public void setIfExist(String ifExist) {
-		this.ifExist = ifExist;
+	public void setFileType(String fileType) {
+		this.fileType = fileType;
+	}
+	public String getFilePath() {
+		return filePath;
+	}
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+	public String getUuid() {
+		return uuid;
+	}
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 	
-
 }
