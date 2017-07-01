@@ -1,16 +1,18 @@
 package cn.jasframework.file.manage.demo.domain.entity;
 
-import java.sql.Blob;
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+@Component
 public class FileInServer {
 	private static final long serialVersionUID = 1L;
 	private String objectId;
-	private String md5;				// 文件MD5
+	private String md5;				// 文件刚开始5M的MD5
 	private String fileName;		// 文件名
 	private String fileSize;		// 文件大小，单位KB
 	private String fileType;		// 文件格式
 	private String filePath;		// 文件存储路径
+	private Date lastModifiedDate;	// 文件最后修改日期
 	private String createUser;		// 文件存储人
 	private Date createTime;		// 文件存储时间
 	private String modifyUser;		// 文件修改人
@@ -51,6 +53,12 @@ public class FileInServer {
 	}
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
+	}
+	public Date getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+	public void setLastModifiedDate(Date lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
 	}
 	public String getCreateUser() {
 		return createUser;

@@ -9,6 +9,18 @@ import cn.jasframework.file.manage.demo.domain.entity.FileInServer;
 import cn.jasframework.file.manage.demo.service.bo.FileChunkBo;
 
 public interface IFileManageService {
+	
+	/**
+	 * <p>功能描述：检查文件是否已上传，用于秒传。</p>
+	 * <p>Jial </p>	
+	 * @param entity
+	 * @return
+	 * @since JDK1.8。
+	 * <p>创建日期:2017年7月1日 下午3:38:11。</p>
+	 * <p>更新日期:[日期YYYY-MM-DD][更改人姓名][变更描述]。</p>
+	 */
+	public boolean checkFile(FileInServer entity);
+	
 	/**
 	 * <p>功能描述：检查分块儿文件是否已上传。</p>
 	 * <p>Jial </p>	
@@ -18,7 +30,7 @@ public interface IFileManageService {
 	 * <p>创建日期:2017年6月30日 下午3:33:22。</p>
 	 * <p>更新日期:[日期YYYY-MM-DD][更改人姓名][变更描述]。</p>
 	 */
-	public boolean checkChunk(FileBlock entity);
+	public String checkChunk(FileBlock entity);
 	
 	/**
 	 * <p>功能描述：文件上传。</p>

@@ -11,7 +11,7 @@ public class FileChunkBo {
 	private long size;		// 文件长度
 	private String fileType;// 文件类型
 	private String filePath;// 文件存储路径
-	private String uuid;	// 文件名
+	private String uuid;	// 文件名(唯一标识)
 	public String getFileMd5() {
 		return fileMd5;
 	}
