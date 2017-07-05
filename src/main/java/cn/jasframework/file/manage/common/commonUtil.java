@@ -37,6 +37,10 @@ public class commonUtil {
 				response.setContentType("text/plain");
 			} else if (fileType.equalsIgnoreCase("zip")) {
 				response.setContentType("application/zip");
+			} else if (fileType.equalsIgnoreCase("gif") || fileType.equalsIgnoreCase("pgn") || fileType.equalsIgnoreCase("jpeg")) {
+				response.setContentType("image/*");
+			} else {
+				response.setContentType("*/*");
 			}
 		}
 		response.addHeader("Content-Disposition", "attachment;filename=" + displayname);
