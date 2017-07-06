@@ -55,7 +55,7 @@ public class FileManageController {
 	/**
 	 * <p>功能描述：检查分块是否已上传，用于断点续传。</p>
 	 * <p>Jial </p>	
-	 * @param bo
+	 * @param entity
 	 * @return
 	 * @since JDK1.8。
 	 * <p>创建日期:2017年5月5日 下午7:12:26。</p>
