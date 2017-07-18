@@ -3,14 +3,14 @@ package cn.jasframework.file.manage.demo.domain.entity;
 public class FileBlock {
 	private static final long serialVersionUID = 1L;
 	
-	private String file_id;	// 分块儿对应文件id
+	private String fileId;	// 分块儿对应文件id
 	private String fileMd5;	// 分块儿文件MD5
 	private int chunk;		// 分块儿文件下标
-	public String getFile_id() {
-		return file_id;
+	public String getFileId() {
+		return fileId;
 	}
-	public void setFile_id(String file_id) {
-		this.file_id = file_id;
+	public void setFileId(String fileId) {
+		this.fileId = fileId;
 	}
 	public String getFileMd5() {
 		return fileMd5;

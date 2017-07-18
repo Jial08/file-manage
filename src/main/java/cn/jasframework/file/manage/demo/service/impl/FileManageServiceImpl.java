@@ -87,7 +87,7 @@ public class FileManageServiceImpl implements IFileManageService {
 		FileBlock entity = new FileBlock();
 		entity.setFileMd5(bo.getFileMd5());
 		entity.setChunk(bo.getChunk());
-		entity.setFile_id(bo.getUuid());
+		entity.setFileId(bo.getUuid());
 		int num = fileManageDao.recordChunk(entity);
 		if (num == 1) {
 			return fileName;

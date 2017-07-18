@@ -74,7 +74,7 @@ public class FileManageDaoImpl implements IFileManageDao {
 	 * <p>更新日期:[日期YYYY-MM-DD][更改人姓名][变更描述]。</p>
 	 */
 	public int recordChunk(FileBlock entity) {
-		Object[] args = { entity.getFile_id(), entity.getFileMd5(), entity.getChunk() };
+		Object[] args = { entity.getFileId(), entity.getFileMd5(), entity.getChunk() };
 		String sql = "INSERT INTO file_block (file_id,file_md5,chunk) VALUES (?,?,?)";
 		return jdbcTemplate.update(sql, args);
 	}
