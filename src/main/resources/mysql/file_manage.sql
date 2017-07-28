@@ -22,8 +22,7 @@ DROP TABLE IF EXISTS `file_block`;
 CREATE TABLE `file_block` (
   `file_id` varchar(38) NOT NULL COMMENT '分块儿对应文件id',
   `file_md5` varchar(38) DEFAULT NULL COMMENT '文件MD5',
-  `chunk` int(18) DEFAULT NULL COMMENT '文件分块下标',
-  PRIMARY KEY (`file_id`)
+  `chunk` int(18) DEFAULT NULL COMMENT '文件分块下标'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
