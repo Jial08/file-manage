@@ -33,4 +33,4 @@ logging:
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
     org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
     com.itmuch.youran.persistence: ERROR
-filePath: D:/文件管理
+filePath: E:/文件管理
